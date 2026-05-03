@@ -1,24 +1,28 @@
-Machine Learning Based Detection of Encrypted Malware Traffic
+# Machine Learning Based Detection of Encrypted Malware Traffic
 
-Project Overview
-----------------
+## Project Overview
+
 This project investigates machine learning-based detection of encrypted malware traffic using flow-level metadata instead of packet payloads. Since encryption protocols such as TLS and HTTPS hide packet contents, traditional payload-based intrusion detection methods become less effective. This project uses statistical network flow features from the CIC-IDS-2017 dataset to classify traffic as benign or malicious.
 
 The project compares two models:
-1. Random Forest Classifier
-2. Multi-Layer Perceptron Neural Network
+
+1. Random Forest Classifier  
+2. Multi-Layer Perceptron Neural Network  
 
 The study also applies feature selection and hyperparameter tuning to evaluate how model performance changes under optimized conditions.
 
-Dataset
--------
-Dataset used:
+---
+
+## Dataset
+
+**Dataset Used:**  
 CIC-IDS-2017
 
-Source:
+**Source:**  
 Canadian Institute for Cybersecurity
 
 The dataset contains labeled benign and malicious network traffic with multiple attack categories, including:
+
 - DDoS
 - DoS
 - PortScan
@@ -29,6 +33,7 @@ The dataset contains labeled benign and malicious network traffic with multiple 
 - Infiltration
 
 Each flow contains network metadata features such as:
+
 - Flow duration
 - Packet length statistics
 - Flow bytes per second
@@ -38,8 +43,10 @@ Each flow contains network metadata features such as:
 - Header length features
 - Subflow statistics
 
-Project Goals
--------------
+---
+
+## Project Goals
+
 - Detect malicious encrypted traffic without decrypting payloads.
 - Compare Random Forest and Neural Network performance.
 - Analyze performance across different attack types.
@@ -47,8 +54,11 @@ Project Goals
 - Perform hyperparameter tuning.
 - Evaluate models using accuracy, precision, recall, and F1-score.
 
-Project Structure
------------------
+---
+
+## Project Structure
+
+```txt
 .
 ├── data/
 │   └── raw/
@@ -56,11 +66,14 @@ Project Structure
 ├── Final.py
 ├── Random Forest.py
 ├── Neural Network.py
-├── README.txt
+├── README.md
 └── requirements.txt
+```
 
-Methodology
------------
+---
+
+## Methodology
+
 1. Load CIC-IDS-2017 dataset files.
 2. Clean column names and remove formatting inconsistencies.
 3. Convert labels into binary classes:
@@ -82,37 +95,45 @@ Methodology
 13. Perform hyperparameter tuning.
 14. Compare final model performance.
 
-Models Used
------------
-Random Forest Classifier:
+---
+
+## Models Used
+
+### Random Forest Classifier
+
 - Baseline classical machine learning model
 - Handles tabular data well
 - Provides feature importance
 - Robust to overfitting
 - Efficient for intrusion detection
 
-Neural Network:
+### Neural Network
+
 - Multi-Layer Perceptron classifier
 - Learns nonlinear feature relationships
 - Requires feature scaling
 - Useful for comparison against classical ML methods
 
-Evaluation Metrics
-------------------
-Accuracy:
+---
+
+## Evaluation Metrics
+
+### Accuracy
 Measures total correct predictions.
 
-Precision:
+### Precision
 Measures how many predicted attacks were actually attacks.
 
-Recall:
+### Recall
 Measures how many real attacks were correctly detected.
 
-F1-score:
+### F1-score
 Balances precision and recall.
 
-Key Findings
-------------
+---
+
+## Key Findings
+
 - Both Random Forest and Neural Network achieved strong detection performance.
 - Random Forest generally performed better on structured tabular flow data.
 - DDoS and PortScan attacks were easier to detect due to clear traffic patterns.
@@ -120,34 +141,50 @@ Key Findings
 - Feature selection improved Random Forest performance but reduced Neural Network performance.
 - Random Forest was more computationally efficient and suitable for practical IDS deployment.
 
-How to Run
-----------
-1. Clone the repository:
+---
 
-   git clone <repository-url>
+## How to Run
 
-2. Navigate to the project folder:
+### 1. Clone the repository
 
-   cd encrypted-malware-traffic-detection
+```bash
+git clone <repository-url>
+```
 
-3. Install dependencies:
+### 2. Navigate to the project folder
 
-   pip install -r requirements.txt
+```bash
+cd encrypted-malware-traffic-detection
+```
 
-4. Add the CIC-IDS-2017 CSV files to the data/ folder.
+### 3. Install dependencies
 
-5. Run the notebook or scripts:
+```bash
+pip install -r requirements.txt
+```
 
-   jupyter notebook
+### 4. Place dataset files
 
-   or
+Add all 7 CIC-IDS-2017 CSV files inside:
 
-   python src/train_random_forest.py
-   python src/train_neural_network.py
+```txt
+data/raw/
+```
 
-Expected Outputs
-----------------
+### 5. Run the Python files
+
+```bash
+python "Random Forest.py"
+python "Neural Network.py"
+python "Final.py"
+```
+
+---
+
+## Expected Outputs
+
 The project generates:
+
 - Model performance metrics
 - Classification reports
 - Feature importance rankings
@@ -155,16 +192,20 @@ The project generates:
 - Accuracy, precision, recall, and F1-score results
 - Optional confusion matrices and plots
 
-Limitations
------------
+---
+
+## Limitations
+
 - CIC-IDS-2017 is a benchmark dataset and may not fully represent real-world encrypted traffic.
 - Some attack classes are highly imbalanced.
 - The current work focuses on binary classification.
 - Real-time deployment was not implemented.
 - Advanced deep learning models such as CNN, RNN, or LSTM were not included.
 
-Future Work
------------
+---
+
+## Future Work
+
 - Test on real-world encrypted TLS traffic.
 - Extend the project to multi-class attack classification.
 - Add advanced deep learning models such as CNN, RNN, LSTM, or Transformer models.
@@ -172,7 +213,8 @@ Future Work
 - Implement real-time intrusion detection.
 - Add explainable AI methods for model interpretation.
 
-Author
-------
-Juhi Sawant
+---
 
+## Author
+
+**Juhi Sawant**
