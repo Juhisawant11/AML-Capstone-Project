@@ -49,19 +49,11 @@ Project Goals
 
 Project Structure
 -----------------
-Project Structure
------------------
 .
 ├── data/
 │   └── raw/
-│       ├── Monday-WorkingHours.csv
-│       ├── Tuesday-WorkingHours.csv
-│       ├── Wednesday-WorkingHours.csv
-│       ├── Thursday-WorkingHours-Morning-WebAttacks.csv
-│       ├── Thursday-WorkingHours-Afternoon-Infiltration.csv
-│       ├── Friday-WorkingHours-Morning.csv
-│       └── Friday-WorkingHours-Afternoon.csv
-├── final.py
+│       └── 7 CIC-IDS-2017 dataset CSV files
+├── Final.py
 ├── Random Forest.py
 ├── Neural Network.py
 ├── README.txt
